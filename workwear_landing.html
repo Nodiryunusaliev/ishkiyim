@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>WorkForce Pro</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:#1a2332;background:#fff}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:#fff;border-bottom:1px solid #e8ecf0;position:sticky;top:0;z-index:100}
+.logo{font-size:1.25rem;font-weight:700;color:#0f2b5b;letter-spacing:-0.5px}
+.logo span{color:#e87722}
+.nav-links{display:flex;gap:2rem;font-size:.9rem;color:#4a5568}
+.nav-links a:hover{color:#e87722}
+.nav-cta{background:#e87722;color:#fff;padding:.55rem 1.25rem;border-radius:6px;font-size:.9rem;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:#cf6810}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f2b5b 0%,#1a4a8a 100%);color:#fff;padding:6rem 5% 5rem;display:flex;align-items:center;gap:4rem}
+.hero-text{flex:1}
+.hero-badge{display:inline-block;background:rgba(232,119,34,.2);color:#f9a55a;border:1px solid rgba(232,119,34,.4);padding:.3rem .9rem;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.25rem;text-transform:uppercase}
+.hero h1{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:1.25rem}
+.hero h1 span{color:#e87722}
+.hero p{font-size:1.05rem;color:#b8cde8;line-height:1.7;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:#e87722;color:#fff;padding:.75rem 1.75rem;border-radius:7px;font-weight:700;font-size:1rem;transition:background .2s}
+.btn-primary:hover{background:#cf6810}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;padding:.75rem 1.75rem;border-radius:7px;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,.25);transition:background .2s}
+.btn-secondary:hover{background:rgba(255,255,255,.18)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15)}
+.stat-num{font-size:1.8rem;font-weight:800;color:#fff}
+.stat-label{font-size:.8rem;color:#7fa4cc;margin-top:.2rem}
+.hero-visual{flex:0 0 340px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.hero-visual h3{font-size:.85rem;color:#7fa4cc;text-transform:uppercase;letter-spacing:.5px}
+.product-pill{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.75rem 1rem;font-size:.9rem;color:#d5e5f5}
+.product-pill i{color:#e87722;font-size:1.2rem}
+
+/* WHY US */
+.section{padding:5rem 5%}
+.section-label{font-size:.8rem;font-weight:700;color:#e87722;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.section-title{font-size:2rem;font-weight:800;color:#0f2b5b;margin-bottom:.75rem}
+.section-sub{color:#5a6a7e;font-size:1rem;line-height:1.7;max-width:560px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.why-card{background:#f7f9fc;border:1px solid #e4e9f0;border-radius:12px;padding:1.5rem}
+.why-icon{width:44px;height:44px;background:#fff3e8;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.why-icon i{color:#e87722;font-size:1.3rem}
+.why-card h3{font-size:1rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.why-card p{font-size:.88rem;color:#5a6a7e;line-height:1.6}
+
+/* PRODUCTS */
+.products-section{background:#f7f9fc;padding:5rem 5%}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:3rem}
+.product-card{background:#fff;border:1px solid #e4e9f0;border-radius:12px;padding:1.75rem 1.25rem;text-align:center;transition:border-color .2s,transform .2s}
+.product-card:hover{border-color:#e87722;transform:translateY(-3px)}
+.product-icon{width:56px;height:56px;background:#fff3e8;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.product-icon i{color:#e87722;font-size:1.5rem}
+.product-card h3{font-size:.95rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.product-card p{font-size:.82rem;color:#5a6a7e;line-height:1.5}
+
+/* HOW IT WORKS */
+.how-section{padding:5rem 5%}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem;position:relative}
+.step{text-align:center}
+.step-num{width:52px;height:52px;background:#0f2b5b;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;margin:0 auto 1.25rem}
+.step h3{font-size:1rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.step p{font-size:.88rem;color:#5a6a7e;line-height:1.6}
+
+/* TRUST */
+.trust-section{background:#0f2b5b;color:#fff;padding:4rem 5%;text-align:center}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;margin-top:2.5rem}
+.trust-item .big{font-size:2.4rem;font-weight:800;color:#e87722}
+.trust-item .lbl{font-size:.85rem;color:#7fa4cc;margin-top:.3rem}
+
+/* FORM */
+.form-section{padding:5rem 5%;background:#f7f9fc}
+.form-wrap{max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.85rem;font-weight:600;color:#2d3748}
+.form-group input,.form-group select,.form-group textarea{border:1px solid #d1d9e0;border-radius:8px;padding:.65rem .9rem;font-size:.92rem;color:#1a2332;background:#fff;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#e87722;box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.form-group textarea{resize:vertical;min-height:110px}
+.submit-btn{width:100%;background:#e87722;color:#fff;border:none;padding:1rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:1rem;transition:background .2s}
+.submit-btn:hover{background:#cf6810}
+.success-msg{display:none;background:#eaf6ec;border:1px solid #b7dfbe;border-radius:8px;padding:1.25rem;color:#1e6b30;font-size:.95rem;font-weight:600;text-align:center;margin-top:1rem}
+
+/* FOOTER */
+footer{background:#081a38;color:#7fa4cc;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1.1rem;font-weight:700;color:#fff}
+.footer-logo span{color:#e87722}
+footer p{font-size:.85rem}
+.footer-links{display:flex;gap:1.5rem;font-size:.85rem}
+.footer-links a:hover{color:#e87722}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Ish<span>Kiyim</span></div>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#how">How it works</a>
+    <a href="#quote">Get a quote</a>
+  </div>
+  <a href="#quote" class="nav-cta">Request a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Trusted Workwear Manufacturer</div>
+    <h1>Premium Workwear,<br><span>Built to Perform.</span></h1>
+    <p>We manufacture high-quality workwear for businesses of all sizes. Custom branding, bulk orders, fast turnaround — from factory floor to your team.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-primary">Get a Free Quote</a>
+      <a href="#products" class="btn-secondary">View Products</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">12+</div><div class="stat-label">Years of experience</div></div>
+      <div><div class="stat-num">500K+</div><div class="stat-label">Units produced</div></div>
+      <div><div class="stat-num">40+</div><div class="stat-label">Countries served</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <h3>Our product range</h3>
+    <div class="product-pill"><i class="ti ti-shirt"></i> Industrial uniforms</div>
+    <div class="product-pill"><i class="ti ti-shield"></i> Safety vests & PPE</div>
+    <div class="product-pill"><i class="ti ti-wind"></i> Jackets & outerwear</div>
+    <div class="product-pill"><i class="ti ti-package"></i> Custom branded sets</div>
+    <div class="product-pill"><i class="ti ti-tools"></i> Workpants & coveralls</div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="why">
+  <div class="section-label">Why choose us</div>
+  <div class="section-title">Quality you can count on</div>
+  <p class="section-sub">From small business orders to large corporate contracts, we deliver precision, durability, and speed.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><i class="ti ti-certificate"></i></div>
+      <h3>Certified quality</h3>
+      <p>ISO-certified production with strict quality control at every stage of manufacturing.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="ti ti-palette"></i></div>
+      <h3>Custom branding</h3>
+      <p>Embroidery, screen printing, and custom labels — your brand, your style.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="ti ti-box"></i></div>
+      <h3>Bulk-ready production</h3>
+      <p>Efficient capacity for orders of any size — from 50 to 50,000+ units.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="ti ti-truck"></i></div>
+      <h3>Fast delivery</h3>
+      <p>Streamlined logistics for on-time delivery, locally and internationally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-label">Product categories</div>
+  <div class="section-title">What we manufacture</div>
+  <p class="section-sub">All products are made with industry-grade materials and can be fully customized to your specifications.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-shirt"></i></div>
+      <h3>Work uniforms</h3>
+      <p>Durable shirts, trousers, and full sets for any industry.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-shield-check"></i></div>
+      <h3>Safety vests</h3>
+      <p>Hi-vis and reflective vests meeting EN ISO 20471 standards.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-wind"></i></div>
+      <h3>Jackets & coats</h3>
+      <p>Waterproof, flame-retardant, and insulated outerwear.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-tools"></i></div>
+      <h3>Coveralls</h3>
+      <p>One-piece protective workwear for heavy-duty environments.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-helmet"></i></div>
+      <h3>PPE accessories</h3>
+      <p>Gloves, aprons, and protective gear for full compliance.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><i class="ti ti-star"></i></div>
+      <h3>Custom sets</h3>
+      <p>Fully branded packages tailored to your company's needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-label">Process</div>
+  <div class="section-title">How it works</div>
+  <p class="section-sub">Getting your workwear is simple. Three steps and we handle everything from there.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Submit your request</h3>
+      <p>Fill out our quote form with your product type, quantity, and any customization needs.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Receive your quote</h3>
+      <p>Our team reviews your request and sends a detailed quote within 24–48 hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Production & delivery</h3>
+      <p>We produce your order with precision and deliver it on time, anywhere in the world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="section-label" style="color:#f9a55a">Our track record</div>
+  <div class="section-title" style="color:#fff;font-size:1.75rem">Trusted by businesses worldwide</div>
+  <div class="trust-grid">
+    <div class="trust-item"><div class="big">12+</div><div class="lbl">Years in business</div></div>
+    <div class="trust-item"><div class="big">500K+</div><div class="lbl">Units manufactured</div></div>
+    <div class="trust-item"><div class="big">40+</div><div class="lbl">Countries delivered</div></div>
+    <div class="trust-item"><div class="big">98%</div><div class="lbl">Client satisfaction rate</div></div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="form-section" id="quote">
+  <div class="form-wrap">
+    <div class="section-label">Get started</div>
+    <div class="section-title">Request a free quote</div>
+    <p class="section-sub">Tell us what you need and we'll get back to you within 24–48 hours with pricing and details.</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="f-name" placeholder="John Smith"/>
+      </div>
+      <div class="form-group">
+        <label>Company name</label>
+        <input type="text" id="f-company" placeholder="ACME Corp"/>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" id="f-email" placeholder="john@company.com"/>
+      </div>
+      <div class="form-group">
+        <label>Phone number</label>
+        <input type="tel" id="f-phone" placeholder="+1 000 000 0000"/>
+      </div>
+      <div class="form-group">
+        <label>Product type</label>
+        <select id="f-product">
+          <option value="">Select a product...</option>
+          <option>Work uniforms</option>
+          <option>Safety vests</option>
+          <option>Jackets & coats</option>
+          <option>Coveralls</option>
+          <option>PPE accessories</option>
+          <option>Custom branded set</option>
+          <option>Multiple / other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Estimated quantity</label>
+        <select id="f-qty">
+          <option value="">Select quantity...</option>
+          <option>50–200 units</option>
+          <option>200–1,000 units</option>
+          <option>1,000–5,000 units</option>
+          <option>5,000–20,000 units</option>
+          <option>20,000+ units</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Additional details</label>
+        <textarea id="f-msg" placeholder="Describe your requirements, customizations, timeline, or any questions..."></textarea>
+      </div>
+    </div>
+    <button class="submit-btn" onclick="submitForm()">Send Quote Request →</button>
+    <div class="success-msg" id="success-msg">✓ Your request has been sent! We'll be in touch within 24–48 hours.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ish<span>Kiyim</span></div>
+  <p>© 2026 IshKiyim. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy policy</a>
+    <a href="#">Terms</a>
+    <a href="#quote">Contact us</a>
+  </div>
+</footer>
+
+<script>
+async function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const product=document.getElementById('f-product').value;
+  const qty=document.getElementById('f-qty').value;
+  const company=document.getElementById('f-company').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!name||!email||!product||!qty){alert('Please fill in all required fields.');return;}
+  const btn=document.querySelector('.submit-btn');
+  btn.textContent='Sending…';btn.disabled=true;
+  const data={
+    access_key:'1b58f2fa-67d2-4da9-9539-63b388ff8df8',
+    subject:`Quote Request from ${name} – ${product}`,
+    from_name:name,
+    email:email,
+    message:`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nProduct: ${product}\nQuantity: ${qty}\n\nMessage:\n${msg}`
+  };
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const json=await res.json();
+    if(json.success){
+      btn.style.display='none';
+      document.getElementById('success-msg').style.display='block';
+    } else {
+      btn.textContent='Send Quote Request →';btn.disabled=false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(e){
+    btn.textContent='Send Quote Request →';btn.disabled=false;
+    alert('Network error. Please try again.');
+  }
+}
+</script>
+</body>
+</html>
