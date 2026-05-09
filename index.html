@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>IshKiyim</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:#1a2332;background:#fff}
+a{text-decoration:none;color:inherit}
+.lang-switcher{display:flex;gap:.25rem}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:.3rem .75rem;border-radius:5px;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s}
+.lang-btn.active{background:#e87722;border-color:#e87722}
+.lang-btn:hover:not(.active){background:rgba(255,255,255,.15)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:#0f2b5b;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:.75rem}
+.logo{font-size:1.25rem;font-weight:700;color:#fff;letter-spacing:-0.5px}
+.logo span{color:#e87722}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;gap:1.75rem;font-size:.9rem;color:#b8cde8}
+.nav-links a:hover{color:#e87722}
+.nav-cta{background:#e87722;color:#fff;padding:.55rem 1.25rem;border-radius:6px;font-size:.9rem;font-weight:600;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:#cf6810}
+.hero{background:linear-gradient(135deg,#0f2b5b 0%,#1a4a8a 100%);color:#fff;padding:6rem 5% 5rem;display:flex;align-items:center;gap:4rem;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.hero-badge{display:inline-block;background:rgba(232,119,34,.2);color:#f9a55a;border:1px solid rgba(232,119,34,.4);padding:.3rem .9rem;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.25rem;text-transform:uppercase}
+.hero h1{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:1.25rem}
+.hero h1 span{color:#e87722}
+.hero p{font-size:1.05rem;color:#b8cde8;line-height:1.7;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:#e87722;color:#fff;padding:.75rem 1.75rem;border-radius:7px;font-weight:700;font-size:1rem;transition:background .2s;cursor:pointer;border:none}
+.btn-primary:hover{background:#cf6810}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;padding:.75rem 1.75rem;border-radius:7px;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,.25);transition:background .2s}
+.btn-secondary:hover{background:rgba(255,255,255,.18)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap}
+.stat-num{font-size:1.8rem;font-weight:800;color:#fff}
+.stat-label{font-size:.8rem;color:#7fa4cc;margin-top:.2rem}
+.hero-visual{flex:0 0 320px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.hero-visual h3{font-size:.85rem;color:#7fa4cc;text-transform:uppercase;letter-spacing:.5px}
+.product-pill{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.75rem 1rem;font-size:.9rem;color:#d5e5f5}
+.product-pill i{color:#e87722;font-size:1.2rem}
+.section{padding:5rem 5%}
+.section-label{font-size:.8rem;font-weight:700;color:#e87722;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.section-title{font-size:2rem;font-weight:800;color:#0f2b5b;margin-bottom:.75rem}
+.section-sub{color:#5a6a7e;font-size:1rem;line-height:1.7;max-width:560px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.why-card{background:#f7f9fc;border:1px solid #e4e9f0;border-radius:12px;padding:1.5rem}
+.why-icon{width:44px;height:44px;background:#fff3e8;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.why-icon i{color:#e87722;font-size:1.3rem}
+.why-card h3{font-size:1rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.why-card p{font-size:.88rem;color:#5a6a7e;line-height:1.6}
+.products-section{background:#f7f9fc;padding:5rem 5%}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:3rem}
+.product-card{background:#fff;border:1px solid #e4e9f0;border-radius:12px;padding:1.75rem 1.25rem;text-align:center;transition:border-color .2s,transform .2s}
+.product-card:hover{border-color:#e87722;transform:translateY(-3px)}
+.product-icon{width:56px;height:56px;background:#fff3e8;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.product-icon i{color:#e87722;font-size:1.5rem}
+.product-card h3{font-size:.95rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.product-card p{font-size:.82rem;color:#5a6a7e;line-height:1.5}
+.how-section{padding:5rem 5%}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
+.step{text-align:center}
+.step-num{width:52px;height:52px;background:#0f2b5b;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;margin:0 auto 1.25rem}
+.step h3{font-size:1rem;font-weight:700;color:#0f2b5b;margin-bottom:.4rem}
+.step p{font-size:.88rem;color:#5a6a7e;line-height:1.6}
+.trust-section{background:#0f2b5b;color:#fff;padding:4rem 5%;text-align:center}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;margin-top:2.5rem}
+.trust-item .big{font-size:2.4rem;font-weight:800;color:#e87722}
+.trust-item .lbl{font-size:.85rem;color:#7fa4cc;margin-top:.3rem}
+.form-section{padding:5rem 5%;background:#f7f9fc}
+.form-wrap{max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.85rem;font-weight:600;color:#2d3748}
+.form-group input,.form-group select,.form-group textarea{border:1px solid #d1d9e0;border-radius:8px;padding:.65rem .9rem;font-size:.92rem;color:#1a2332;background:#fff;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#e87722;box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.form-group textarea{resize:vertical;min-height:110px}
+.submit-btn{width:100%;background:#e87722;color:#fff;border:none;padding:1rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:1rem;transition:background .2s}
+.submit-btn:hover{background:#cf6810}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+.success-msg{display:none;background:#eaf6ec;border:1px solid #b7dfbe;border-radius:8px;padding:1.25rem;color:#1e6b30;font-size:.95rem;font-weight:600;text-align:center;margin-top:1rem}
+footer{background:#081a38;color:#7fa4cc;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1.1rem;font-weight:700;color:#fff}
+.footer-logo span{color:#e87722}
+footer p{font-size:.85rem}
+.footer-links{display:flex;gap:1.5rem;font-size:.85rem}
+.footer-links a:hover{color:#e87722}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Ish<span>Kiyim</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#products" data-t="nav_products"></a>
+      <a href="#how" data-t="nav_how"></a>
+      <a href="#quote" data-t="nav_contact"></a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('uz')">UZ</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+    </div>
+    <a href="#quote" class="nav-cta" data-t="nav_cta"></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge" data-t="hero_badge"></div>
+    <h1 data-t="hero_h1"></h1>
+    <p data-t="hero_p"></p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-primary" data-t="hero_btn1"></a>
+      <a href="#products" class="btn-secondary" data-t="hero_btn2"></a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">12+</div><div class="stat-label" data-t="stat1"></div></div>
+      <div><div class="stat-num">500K+</div><div class="stat-label" data-t="stat2"></div></div>
+      <div><div class="stat-num">40+</div><div class="stat-label" data-t="stat3"></div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <h3 data-t="range_title"></h3>
+    <div class="product-pill"><i class="ti ti-shirt"></i><span data-t="p1"></span></div>
+    <div class="product-pill"><i class="ti ti-shield"></i><span data-t="p2"></span></div>
+    <div class="product-pill"><i class="ti ti-wind"></i><span data-t="p3"></span></div>
+    <div class="product-pill"><i class="ti ti-package"></i><span data-t="p4"></span></div>
+    <div class="product-pill"><i class="ti ti-tools"></i><span data-t="p5"></span></div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="section-label" data-t="why_label"></div>
+  <div class="section-title" data-t="why_title"></div>
+  <p class="section-sub" data-t="why_sub"></p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon"><i class="ti ti-certificate"></i></div><h3 data-t="w1t"></h3><p data-t="w1p"></p></div>
+    <div class="why-card"><div class="why-icon"><i class="ti ti-palette"></i></div><h3 data-t="w2t"></h3><p data-t="w2p"></p></div>
+    <div class="why-card"><div class="why-icon"><i class="ti ti-box"></i></div><h3 data-t="w3t"></h3><p data-t="w3p"></p></div>
+    <div class="why-card"><div class="why-icon"><i class="ti ti-truck"></i></div><h3 data-t="w4t"></h3><p data-t="w4p"></p></div>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="section-label" data-t="prod_label"></div>
+  <div class="section-title" data-t="prod_title"></div>
+  <p class="section-sub" data-t="prod_sub"></p>
+  <div class="products-grid">
+    <div class="product-card"><div class="product-icon"><i class="ti ti-shirt"></i></div><h3 data-t="pc1t"></h3><p data-t="pc1p"></p></div>
+    <div class="product-card"><div class="product-icon"><i class="ti ti-shield-check"></i></div><h3 data-t="pc2t"></h3><p data-t="pc2p"></p></div>
+    <div class="product-card"><div class="product-icon"><i class="ti ti-wind"></i></div><h3 data-t="pc3t"></h3><p data-t="pc3p"></p></div>
+    <div class="product-card"><div class="product-icon"><i class="ti ti-tools"></i></div><h3 data-t="pc4t"></h3><p data-t="pc4p"></p></div>
+    <div class="product-card"><div class="product-icon"><i class="ti ti-helmet"></i></div><h3 data-t="pc5t"></h3><p data-t="pc5p"></p></div>
+    <div class="product-card"><div class="product-icon"><i class="ti ti-star"></i></div><h3 data-t="pc6t"></h3><p data-t="pc6p"></p></div>
+  </div>
+</section>
+
+<section class="how-section" id="how">
+  <div class="section-label" data-t="how_label"></div>
+  <div class="section-title" data-t="how_title"></div>
+  <p class="section-sub" data-t="how_sub"></p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3 data-t="s1t"></h3><p data-t="s1p"></p></div>
+    <div class="step"><div class="step-num">2</div><h3 data-t="s2t"></h3><p data-t="s2p"></p></div>
+    <div class="step"><div class="step-num">3</div><h3 data-t="s3t"></h3><p data-t="s3p"></p></div>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="section-label" style="color:#f9a55a" data-t="trust_label"></div>
+  <div class="section-title" style="color:#fff;font-size:1.75rem" data-t="trust_title"></div>
+  <div class="trust-grid">
+    <div class="trust-item"><div class="big">12+</div><div class="lbl" data-t="trust1"></div></div>
+    <div class="trust-item"><div class="big">500K+</div><div class="lbl" data-t="trust2"></div></div>
+    <div class="trust-item"><div class="big">40+</div><div class="lbl" data-t="trust3"></div></div>
+    <div class="trust-item"><div class="big">98%</div><div class="lbl" data-t="trust4"></div></div>
+  </div>
+</section>
+
+<section class="form-section" id="quote">
+  <div class="form-wrap">
+    <div class="section-label" data-t="form_label"></div>
+    <div class="section-title" data-t="form_title"></div>
+    <p class="section-sub" data-t="form_sub"></p>
+    <div class="form-grid">
+      <div class="form-group"><label data-t="f_name"></label><input type="text" id="f-name" data-ph="f_name_ph"/></div>
+      <div class="form-group"><label data-t="f_company"></label><input type="text" id="f-company" data-ph="f_company_ph"/></div>
+      <div class="form-group"><label data-t="f_email"></label><input type="email" id="f-email" placeholder="sales@company.com"/></div>
+      <div class="form-group"><label data-t="f_phone"></label><input type="tel" id="f-phone" placeholder="+998 00 000 00 00"/></div>
+      <div class="form-group"><label data-t="f_product"></label>
+        <select id="f-product">
+          <option value="" data-t="f_prod_default"></option>
+          <option data-t="f_prod1"></option>
+          <option data-t="f_prod2"></option>
+          <option data-t="f_prod3"></option>
+          <option data-t="f_prod4"></option>
+          <option data-t="f_prod5"></option>
+          <option data-t="f_prod6"></option>
+          <option data-t="f_prod7"></option>
+        </select>
+      </div>
+      <div class="form-group"><label data-t="f_qty"></label>
+        <select id="f-qty">
+          <option value="" data-t="f_qty_default"></option>
+          <option>50–200</option>
+          <option>200–1,000</option>
+          <option>1,000–5,000</option>
+          <option>5,000–20,000</option>
+          <option>20,000+</option>
+        </select>
+      </div>
+      <div class="form-group full"><label data-t="f_msg"></label><textarea id="f-msg" data-ph="f_msg_ph"></textarea></div>
+    </div>
+    <button class="submit-btn" id="submit-btn" onclick="submitForm()" data-t="f_submit"></button>
+    <div class="success-msg" id="success-msg" data-t="f_success"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Ish<span>Kiyim</span></div>
+  <p data-t="footer_copy"></p>
+  <div class="footer-links">
+    <a href="#" data-t="footer_privacy"></a>
+    <a href="#" data-t="footer_terms"></a>
+    <a href="#quote" data-t="footer_contact"></a>
+  </div>
+</footer>
+
+<script>
+const T={
+  uz:{
+    nav_products:"Mahsulotlar",nav_how:"Qanday ishlaydi",nav_contact:"Aloqa",nav_cta:"Narx so'rash",
+    hero_badge:"Ishonchli ish kiyim ishlab chiqaruvchi",
+    hero_h1:"Sifatli ish kiyim,<br><span>ishlash uchun yaratilgan.</span>",
+    hero_p:"Har qanday o'lchamdagi korxonalar uchun yuqori sifatli ish kiyimlari ishlab chiqaramiz. Maxsus brendlash, ommaviy buyurtmalar, tez yetkazib berish.",
+    hero_btn1:"Bepul narx olish",hero_btn2:"Mahsulotlarni ko'rish",
+    stat1:"Yillik tajriba",stat2:"Ishlab chiqarilgan dona",stat3:"Xizmat ko'rsatilgan davlatlar",
+    range_title:"Mahsulotlar assortimenti",
+    p1:"Sanoat formasini",p2:"Xavfsizlik jiletlari va HIM",p3:"Kurtkalar va tashqi kiyimlar",p4:"Maxsus brendlangan to'plamlar",p5:"Shim va kombinezonlar",
+    why_label:"Nega biz",why_title:"Ishonch bilan tanlang",why_sub:"Kichik korxonalardan yirik korporativ buyurtmalargacha — aniqlik, mustahkamlik va tezlikni ta'minlaymiz.",
+    w1t:"Sertifikatlangan sifat",w1p:"Ishlab chiqarishning har bosqichida qat'iy sifat nazorati bilan ISO sertifikatlangan.",
+    w2t:"Maxsus brendlash",w2p:"Kashtado'zlik, sitotamg'a va maxsus yorliqlar — sizning brendingiz, sizning uslubingiz.",
+    w3t:"Ommaviy ishlab chiqarish",w3p:"50 tadan 50 000+ donagacha bo'lgan har qanday hajmdagi buyurtmalar uchun kuchli quvvat.",
+    w4t:"Tez yetkazib berish",w4p:"Mahalliy va xalqaro miqyosda o'z vaqtida yetkazib berish uchun samarali logistika.",
+    prod_label:"Mahsulot turlari",prod_title:"Nima ishlab chiqaramiz",prod_sub:"Barcha mahsulotlar sanoat darajasidagi materiallardan tayyorlanadi va to'liq moslashtirish mumkin.",
+    pc1t:"Ish formalari",pc1p:"Har qanday soha uchun chidamli ko'ylak, shim va to'liq to'plamlar.",
+    pc2t:"Xavfsizlik jiletlari",pc2p:"EN ISO 20471 standartlariga mos keluvchi ko'rinuvchan va reflektiv jiletlar.",
+    pc3t:"Kurtka va palto",pc3p:"Suv o'tkazmaydigan, olov o'tkazmaydigan va issiqlik saqlayдigan tashqi kiyimlar.",
+    pc4t:"Kombinezonlar",pc4p:"Og'ir sharoitlar uchun bir bo'lakli himoya ish kiyimlari.",
+    pc5t:"HIM aksessuarlari",pc5p:"To'liq muvofiqlik uchun qo'lqoplar, fartuklar va himoya vositalari.",
+    pc6t:"Maxsus to'plamlar",pc6p:"Kompaniyangiz ehtiyojlariga moslashtirilgan to'liq brendlangan paketlar.",
+    how_label:"Jarayon",how_title:"Qanday ishlaydi",how_sub:"Ish kiyimingizni olish oddiy. Uch qadam — qolganini biz hal qilamiz.",
+    s1t:"So'rov yuboring",s1p:"Mahsulot turi, miqdori va moslashtirish talablarini ko'rsatib, forma to'ldiring.",
+    s2t:"Narxni oling",s2p:"Jamoamiz so'rovingizni ko'rib chiqadi va 24–48 soat ichida batafsil narx yuboradi.",
+    s3t:"Ishlab chiqarish va yetkazish",s3p:"Buyurtmangizni aniqlik bilan ishlab chiqaramiz va dunyoning istalgan joyiga o'z vaqtida yetkazamiz.",
+    trust_label:"Bizning yutuqlarimiz",trust_title:"Dunyo bo'ylab korxonalar ishonadi",
+    trust1:"Yillik faoliyat",trust2:"Ishlab chiqarilgan dona",trust3:"Yetkazilgan davlatlar",trust4:"Mijozlar mamnuniyati",
+    form_label:"Boshlash",form_title:"Bepul narx so'rash",form_sub:"Nima kerakligini ayting — 24–48 soat ichida narx va tafsilotlar bilan bog'lanamiz.",
+    f_name:"Ismingiz",f_name_ph:"Sarvar Karimov",f_company:"Kompaniya nomi",f_company_ph:"ACME MChJ",
+    f_email:"Elektron pochta",f_phone:"Telefon raqami",
+    f_product:"Mahsulot turi",f_prod_default:"Mahsulot tanlang...",
+    f_prod1:"Ish formalari",f_prod2:"Xavfsizlik jiletlari",f_prod3:"Kurtka va palto",f_prod4:"Kombinezonlar",f_prod5:"HIM aksessuarlari",f_prod6:"Maxsus brendlangan to'plam",f_prod7:"Bir nechta / boshqa",
+    f_qty:"Taxminiy miqdor",f_qty_default:"Miqdor tanlang...",
+    f_msg:"Qo'shimcha ma'lumot",f_msg_ph:"Talablaringizni, moslashtirish, muddat yoki savollaringizni yozing...",
+    f_submit:"Narx so'rovini yuborish →",
+    f_success:"✓ So'rovingiz yuborildi! 24–48 soat ichida siz bilan bog'lanamiz.",
+    f_alert:"Iltimos, barcha majburiy maydonlarni to'ldiring.",f_sending:"Yuborilmoqda…",
+    footer_copy:"© 2026 IshKiyim. Barcha huquqlar himoyalangan.",footer_privacy:"Maxfiylik siyosati",footer_terms:"Shartlar",footer_contact:"Biz bilan bog'laning"
+  },
+  ru:{
+    nav_products:"Продукция",nav_how:"Как это работает",nav_contact:"Контакты",nav_cta:"Запросить цену",
+    hero_badge:"Надёжный производитель спецодежды",
+    hero_h1:"Качественная спецодежда,<br><span>созданная для работы.</span>",
+    hero_p:"Производим высококачественную спецодежду для предприятий любого размера. Индивидуальный брендинг, оптовые заказы, быстрая доставка.",
+    hero_btn1:"Получить бесплатный расчёт",hero_btn2:"Смотреть продукцию",
+    stat1:"Лет опыта",stat2:"Произведено единиц",stat3:"Стран обслуживания",
+    range_title:"Ассортимент продукции",
+    p1:"Промышленная форма",p2:"Сигнальные жилеты и СИЗ",p3:"Куртки и верхняя одежда",p4:"Наборы с индивидуальным брендом",p5:"Брюки и комбинезоны",
+    why_label:"Почему мы",why_title:"Выбирайте с уверенностью",why_sub:"От малого бизнеса до крупных корпоративных заказов — гарантируем точность, прочность и скорость.",
+    w1t:"Сертифицированное качество",w1p:"Производство сертифицировано по ISO с жёстким контролем качества на каждом этапе.",
+    w2t:"Индивидуальный брендинг",w2p:"Вышивка, шелкография и нанесение этикеток — ваш бренд, ваш стиль.",
+    w3t:"Крупносерийное производство",w3p:"Мощность для заказов любого объёма — от 50 до 50 000+ единиц.",
+    w4t:"Быстрая доставка",w4p:"Отлаженная логистика для своевременной доставки по всему миру.",
+    prod_label:"Категории продукции",prod_title:"Что мы производим",prod_sub:"Вся продукция изготовлена из материалов промышленного класса и может быть полностью адаптирована.",
+    pc1t:"Рабочая форма",pc1p:"Прочные рубашки, брюки и комплекты для любой отрасли.",
+    pc2t:"Сигнальные жилеты",pc2p:"Сигнальные и светоотражающие жилеты, соответствующие EN ISO 20471.",
+    pc3t:"Куртки и пальто",pc3p:"Водонепроницаемая, огнестойкая и утеплённая верхняя одежда.",
+    pc4t:"Комбинезоны",pc4p:"Цельная защитная спецодежда для тяжёлых условий труда.",
+    pc5t:"Аксессуары СИЗ",pc5p:"Перчатки, фартуки и защитные средства для полного соответствия нормам.",
+    pc6t:"Индивидуальные наборы",pc6p:"Полностью брендированные пакеты, адаптированные под нужды вашей компании.",
+    how_label:"Процесс",how_title:"Как это работает",how_sub:"Получить спецодежду просто. Три шага — остальное берём на себя.",
+    s1t:"Отправьте заявку",s1p:"Заполните форму, указав тип продукта, количество и требования к кастомизации.",
+    s2t:"Получите расчёт",s2p:"Наша команда рассмотрит заявку и пришлёт подробный расчёт в течение 24–48 часов.",
+    s3t:"Производство и доставка",s3p:"Изготовим заказ с точностью и доставим вовремя в любую точку мира.",
+    trust_label:"Наши результаты",trust_title:"Нам доверяют предприятия по всему миру",
+    trust1:"Лет работы",trust2:"Произведено единиц",trust3:"Стран доставки",trust4:"Удовлетворённость клиентов",
+    form_label:"Начать",form_title:"Запросить бесплатный расчёт",form_sub:"Расскажите, что нужно — ответим с ценами и деталями в течение 24–48 часов.",
+    f_name:"Ваше имя",f_name_ph:"Иван Иванов",f_company:"Название компании",f_company_ph:"ООО «Ромашка»",
+    f_email:"Электронная почта",f_phone:"Номер телефона",
+    f_product:"Тип продукции",f_prod_default:"Выберите продукт...",
+    f_prod1:"Рабочая форма",f_prod2:"Сигнальные жилеты",f_prod3:"Куртки и пальто",f_prod4:"Комбинезоны",f_prod5:"Аксессуары СИЗ",f_prod6:"Индивидуальный брендированный набор",f_prod7:"Несколько / другое",
+    f_qty:"Примерное количество",f_qty_default:"Выберите количество...",
+    f_msg:"Дополнительная информация",f_msg_ph:"Опишите требования, кастомизацию, сроки или задайте вопросы...",
+    f_submit:"Отправить запрос на расчёт →",
+    f_success:"✓ Ваш запрос отправлен! Свяжемся с вами в течение 24–48 часов.",
+    f_alert:"Пожалуйста, заполните все обязательные поля.",f_sending:"Отправка…",
+    footer_copy:"© 2026 IshKiyim. Все права защищены.",footer_privacy:"Политика конфиденциальности",footer_terms:"Условия",footer_contact:"Связаться с нами"
+  }
+};
+
+let lang='uz';
+
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const key=el.getAttribute('data-t');
+    if(T[l][key]!==undefined) el.innerHTML=T[l][key];
+  });
+  document.querySelectorAll('[data-ph]').forEach(el=>{
+    const key=el.getAttribute('data-ph');
+    if(T[l][key]!==undefined) el.placeholder=T[l][key];
+  });
+}
+
+async function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const product=document.getElementById('f-product').value;
+  const qty=document.getElementById('f-qty').value;
+  const company=document.getElementById('f-company').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!name||!email||!product||!qty){alert(T[lang].f_alert);return;}
+  const btn=document.getElementById('submit-btn');
+  btn.textContent=T[lang].f_sending;btn.disabled=true;
+  const data={
+    access_key:'1b58f2fa-67d2-4da9-9539-63b388ff8df8',
+    subject:`Quote Request from ${name} – ${product}`,
+    from_name:name,email:email,
+    message:`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nProduct: ${product}\nQuantity: ${qty}\n\nMessage:\n${msg}`
+  };
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const json=await res.json();
+    if(json.success){btn.style.display='none';document.getElementById('success-msg').style.display='block';}
+    else{btn.textContent=T[lang].f_submit;btn.disabled=false;alert('Error. Please try again.');}
+  }catch(e){btn.textContent=T[lang].f_submit;btn.disabled=false;alert('Network error.');}
+}
+
+setLang('uz');
+</script>
+</body>
+</html>
