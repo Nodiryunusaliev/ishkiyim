@@ -7,10 +7,10 @@
 <meta name="description" content="IshKiyim – professional ish kiyimlari ishlab chiqaruvchisi. Forma, jilet, kurtka, kombinezon. Ommaviy buyurtmalar, tez yetkazib berish. Профессиональный производитель спецодежды в Узбекистане."/>
 <meta name="keywords" content="ish kiyim, forma, spetsodezhda, kombinezon, xavfsizlik jilet, ishlab chiqarish, Uzbekistan, спецодежда, рабочая одежда, форма, производитель"/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://ishkiyim.uz"/>
+<link rel="canonical" href="https://www.ishkiyim.uz/"/>
 <meta property="og:title" content="IshKiyim – Ish kiyim ishlab chiqarish"/>
 <meta property="og:description" content="Professional ish kiyimlari. Ommaviy buyurtmalar, maxsus brendlash, tez yetkazib berish."/>
-<meta property="og:url" content="https://ishkiyim.uz"/>
+<meta property="og:url" content="https://www.ishkiyim.uz/"/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IshKiyim – Ish kiyim ishlab chiqarish"/>
@@ -19,7 +19,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.49.0/tabler-icons.min.css"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:#1a2332;background:#fff}
@@ -200,11 +200,11 @@ footer p{font-size:.85rem}
     <div class="section-title" data-t="form_title"></div>
     <p class="section-sub" data-t="form_sub"></p>
     <div class="form-grid">
-      <div class="form-group"><label data-t="f_name"></label><input type="text" id="f-name" data-ph="f_name_ph"/></div>
-      <div class="form-group"><label data-t="f_company"></label><input type="text" id="f-company" data-ph="f_company_ph"/></div>
-      <div class="form-group"><label data-t="f_email"></label><input type="email" id="f-email" placeholder="sales@company.com"/></div>
-      <div class="form-group"><label data-t="f_phone"></label><input type="tel" id="f-phone" placeholder="+998 00 000 00 00"/></div>
-      <div class="form-group"><label data-t="f_product"></label>
+      <div class="form-group"><label for="f-name" data-t="f_name"></label><input type="text" id="f-name" data-ph="f_name_ph"/></div>
+      <div class="form-group"><label for="f-company" data-t="f_company"></label><input type="text" id="f-company" data-ph="f_company_ph"/></div>
+      <div class="form-group"><label for="f-email" data-t="f_email"></label><input type="email" id="f-email" placeholder="sales@company.com"/></div>
+      <div class="form-group"><label for="f-phone" data-t="f_phone"></label><input type="tel" id="f-phone" placeholder="+998 00 000 00 00"/></div>
+      <div class="form-group"><label for="f-product" data-t="f_product"></label>
         <select id="f-product">
           <option value="" data-t="f_prod_default"></option>
           <option data-t="f_prod1"></option>
@@ -216,7 +216,7 @@ footer p{font-size:.85rem}
           <option data-t="f_prod7"></option>
         </select>
       </div>
-      <div class="form-group"><label data-t="f_qty"></label>
+      <div class="form-group"><label for="f-qty" data-t="f_qty"></label>
         <select id="f-qty">
           <option value="" data-t="f_qty_default"></option>
           <option>50–200</option>
@@ -226,7 +226,7 @@ footer p{font-size:.85rem}
           <option>20,000+</option>
         </select>
       </div>
-      <div class="form-group full"><label data-t="f_msg"></label><textarea id="f-msg" data-ph="f_msg_ph"></textarea></div>
+      <div class="form-group full"><label for="f-msg" data-t="f_msg"></label><textarea id="f-msg" data-ph="f_msg_ph"></textarea></div>
     </div>
     <button class="submit-btn" id="submit-btn" onclick="submitForm()" data-t="f_submit"></button>
     <div class="success-msg" id="success-msg" data-t="f_success"></div>
@@ -281,6 +281,7 @@ const T={
     f_msg:"Qo'shimcha ma'lumot",f_msg_ph:"Talablaringizni, moslashtirish, muddat yoki savollaringizni yozing...",
     f_submit:"Narx so'rovini yuborish →",
     f_success:"✓ So'rovingiz yuborildi! 24–48 soat ichida siz bilan bog'lanamiz.",
+    f_err:"Xatolik. Qayta urinib ko'ring.",f_neterr:"Tarmoq xatosi. Qayta urinib ko'ring.",f_bademail:"Iltimos, to'g'ri email kiriting.",
     f_alert:"Iltimos, barcha majburiy maydonlarni to'ldiring.",f_sending:"Yuborilmoqda…",
     footer_copy:"© 2026 IshKiyim. Barcha huquqlar himoyalangan.",footer_privacy:"Maxfiylik siyosati",footer_terms:"Shartlar",footer_contact:"Biz bilan bog'laning"
   },
@@ -320,6 +321,7 @@ const T={
     f_msg:"Дополнительная информация",f_msg_ph:"Опишите требования, кастомизацию, сроки или задайте вопросы...",
     f_submit:"Отправить запрос на расчёт →",
     f_success:"✓ Ваш запрос отправлен! Свяжемся с вами в течение 24–48 часов.",
+    f_err:"Ошибка. Попробуйте ещё раз.",f_neterr:"Ошибка сети. Попробуйте ещё раз.",f_bademail:"Пожалуйста, введите корректный email.",
     f_alert:"Пожалуйста, заполните все обязательные поля.",f_sending:"Отправка…",
     footer_copy:"© 2026 IshKiyim. Все права защищены.",footer_privacy:"Политика конфиденциальности",footer_terms:"Условия",footer_contact:"Связаться с нами"
   }
@@ -328,7 +330,9 @@ const T={
 let lang='uz';
 
 function setLang(l){
+  if(!T[l]) l='uz';
   lang=l;
+  try{localStorage.setItem('lang',l);}catch(e){}
   document.documentElement.lang=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));
   document.querySelectorAll('[data-t]').forEach(el=>{
@@ -350,6 +354,7 @@ async function submitForm(){
   const phone=document.getElementById('f-phone').value.trim();
   const msg=document.getElementById('f-msg').value.trim();
   if(!name||!email||!product||!qty){alert(T[lang].f_alert);return;}
+  if(!document.getElementById('f-email').checkValidity()){alert(T[lang].f_bademail);return;}
   const btn=document.getElementById('submit-btn');
   btn.textContent=T[lang].f_sending;btn.disabled=true;
   const data={
@@ -362,11 +367,13 @@ async function submitForm(){
     const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     const json=await res.json();
     if(json.success){btn.style.display='none';document.getElementById('success-msg').style.display='block';}
-    else{btn.textContent=T[lang].f_submit;btn.disabled=false;alert('Error. Please try again.');}
-  }catch(e){btn.textContent=T[lang].f_submit;btn.disabled=false;alert('Network error.');}
+    else{btn.textContent=T[lang].f_submit;btn.disabled=false;alert(T[lang].f_err);}
+  }catch(e){btn.textContent=T[lang].f_submit;btn.disabled=false;alert(T[lang].f_neterr);}
 }
 
-setLang('uz');
+let saved=null;
+try{saved=localStorage.getItem('lang');}catch(e){}
+setLang(saved||'uz');
 </script>
 </body>
 </html>
