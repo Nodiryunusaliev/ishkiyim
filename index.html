@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>IshKiyim – Ish kiyim ishlab chiqarish | Спецодежда на заказ</title>
-<meta name="description" content="IshKiyim – professional ish kiyimlari ishlab chiqaruvchisi. Forma, jilet, kurtka, kombinezon. Ommaviy buyurtmalar, tez yetkazib berish. Профессиональный производитель спецодежды в Узбекистане."/>
-<meta name="keywords" content="ish kiyim, forma, spetsodezhda, kombinezon, xavfsizlik jilet, ishlab chiqarish, Uzbekistan, спецодежда, рабочая одежда, форма, производитель"/>
+<title>IshKiyim – Ish kiyim ishlab chiqarish | Спецодежда на заказ | Workwear Manufacturer</title>
+<meta name="description" content="IshKiyim – professional ish kiyimlari ishlab chiqaruvchisi. Forma, jilet, kurtka, kombinezon. Ommaviy buyurtmalar, tez yetkazib berish. Профессиональный производитель спецодежды в Узбекистане. Custom workwear, uniforms, safety vests and coveralls manufacturer in Uzbekistan — bulk orders, custom branding, fast delivery."/>
+<meta name="keywords" content="ish kiyim, forma, spetsodezhda, kombinezon, xavfsizlik jilet, ishlab chiqarish, Uzbekistan, спецодежда, рабочая одежда, форма, производитель, workwear, uniforms, coveralls, safety vest, PPE manufacturer"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://ishkiyim.uz"/>
 <meta property="og:title" content="IshKiyim – Ish kiyim ishlab chiqarish"/>
@@ -116,6 +116,7 @@ footer p{font-size:.85rem}
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('uz')">UZ</button>
       <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <a href="#quote" class="nav-cta" data-t="nav_cta"></a>
   </div>
@@ -322,6 +323,45 @@ const T={
     f_success:"✓ Ваш запрос отправлен! Свяжемся с вами в течение 24–48 часов.",
     f_alert:"Пожалуйста, заполните все обязательные поля.",f_sending:"Отправка…",
     footer_copy:"© 2026 IshKiyim. Все права защищены.",footer_privacy:"Политика конфиденциальности",footer_terms:"Условия",footer_contact:"Связаться с нами"
+  },
+  en:{
+    nav_products:"Products",nav_how:"How it works",nav_contact:"Contact",nav_cta:"Get a quote",
+    hero_badge:"Trusted workwear manufacturer",
+    hero_h1:"Quality workwear,<br><span>built for the job.</span>",
+    hero_p:"We manufacture high-quality workwear for businesses of every size. Custom branding, bulk orders, fast delivery.",
+    hero_btn1:"Get a free quote",hero_btn2:"View products",
+    stat1:"Years of experience",stat2:"Units produced",stat3:"Countries served",
+    range_title:"Product range",
+    p1:"Industrial uniforms",p2:"Safety vests &amp; PPE",p3:"Jackets &amp; outerwear",p4:"Custom-branded sets",p5:"Trousers &amp; coveralls",
+    why_label:"Why us",why_title:"Choose with confidence",why_sub:"From small businesses to large corporate orders — we guarantee precision, durability, and speed.",
+    w1t:"Certified quality",w1p:"ISO-certified production with strict quality control at every stage.",
+    w2t:"Custom branding",w2p:"Embroidery, screen printing, and custom labels — your brand, your style.",
+    w3t:"Bulk production",w3p:"The capacity for orders of any size, from 50 to 50,000+ units.",
+    w4t:"Fast delivery",w4p:"Efficient logistics for on-time delivery, locally and internationally.",
+    prod_label:"Product categories",prod_title:"What we make",prod_sub:"Every product is made from industrial-grade materials and can be fully customized.",
+    pc1t:"Work uniforms",pc1p:"Durable shirts, trousers, and full sets for any industry.",
+    pc2t:"Safety vests",pc2p:"High-visibility and reflective vests compliant with EN ISO 20471.",
+    pc3t:"Jackets &amp; coats",pc3p:"Waterproof, flame-resistant, and insulated outerwear.",
+    pc4t:"Coveralls",pc4p:"One-piece protective workwear for demanding conditions.",
+    pc5t:"PPE accessories",pc5p:"Gloves, aprons, and protective gear for full compliance.",
+    pc6t:"Custom kits",pc6p:"Fully branded packages tailored to your company's needs.",
+    how_label:"Process",how_title:"How it works",how_sub:"Getting your workwear is simple. Three steps — we handle the rest.",
+    s1t:"Submit a request",s1p:"Fill out the form with your product type, quantity, and customization needs.",
+    s2t:"Get a quote",s2p:"Our team reviews your request and sends a detailed quote within 24–48 hours.",
+    s3t:"Production &amp; delivery",s3p:"We manufacture your order with precision and deliver it on time, anywhere in the world.",
+    trust_label:"Our track record",trust_title:"Trusted by businesses worldwide",
+    trust1:"Years in business",trust2:"Units produced",trust3:"Countries delivered to",trust4:"Customer satisfaction",
+    form_label:"Get started",form_title:"Request a free quote",form_sub:"Tell us what you need — we'll get back to you with pricing and details within 24–48 hours.",
+    f_name:"Your name",f_name_ph:"John Smith",f_company:"Company name",f_company_ph:"ACME LLC",
+    f_email:"Email address",f_phone:"Phone number",
+    f_product:"Product type",f_prod_default:"Select a product...",
+    f_prod1:"Work uniforms",f_prod2:"Safety vests",f_prod3:"Jackets &amp; coats",f_prod4:"Coveralls",f_prod5:"PPE accessories",f_prod6:"Custom-branded set",f_prod7:"Multiple / other",
+    f_qty:"Estimated quantity",f_qty_default:"Select a quantity...",
+    f_msg:"Additional information",f_msg_ph:"Describe your requirements, customization, timeline, or any questions...",
+    f_submit:"Submit quote request &rarr;",
+    f_success:"&check; Your request has been submitted! We'll be in touch within 24–48 hours.",
+    f_alert:"Please fill in all required fields.",f_sending:"Sending…",
+    footer_copy:"© 2026 IshKiyim. All rights reserved.",footer_privacy:"Privacy policy",footer_terms:"Terms",footer_contact:"Contact us"
   }
 };
 
@@ -330,6 +370,7 @@ let lang='uz';
 function setLang(l){
   lang=l;
   document.documentElement.lang=l;
+  try{localStorage.setItem('ishkiyim_lang',l);}catch(e){}
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));
   document.querySelectorAll('[data-t]').forEach(el=>{
     const key=el.getAttribute('data-t');
@@ -366,7 +407,12 @@ async function submitForm(){
   }catch(e){btn.textContent=T[lang].f_submit;btn.disabled=false;alert('Network error.');}
 }
 
-setLang('uz');
+(function(){
+  const saved=localStorage.getItem('ishkiyim_lang');
+  if(saved && T[saved]){setLang(saved);return;}
+  const browserLang=(navigator.language||'uz').slice(0,2).toLowerCase();
+  setLang(T[browserLang]?browserLang:'uz');
+})();
 </script>
 </body>
 </html>
